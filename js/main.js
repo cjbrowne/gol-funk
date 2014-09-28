@@ -1,19 +1,18 @@
-(function() {
+document.addEventListener( "DOMContentLoaded", function() {
 
 	var _ = require("lodash");
+	var worldGenerator = require("./worldGenerator");
+	var worldRenderer = require("./worldRenderer");
+	var worldRunner = require("./worldRunner");
+
+	var canvas = document.getElementById("gol-world");
 
 	var gameOfLife = function (world) {
-
+		console.log("life on ", world);
+		worldRenderer.start(world, canvas);
+		worldRunner.start(world);
 	};
 
-	var generateRow = function(width) {
-		
-	}
+	gameOfLife(worldGenerator.generateWorld(120, 120));
 
-	var generateWorld = function (width, height) {
-		_.times(height, _.bind(generateRow, null, width));
-	};
-
-	gameOfLife(generateWorld(10, 10));
-
-}());
+}, false );

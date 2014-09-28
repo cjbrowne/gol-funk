@@ -6,6 +6,11 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'build/gameoflife.js': ['js/**/*.js']
+                },
+                options: {
+                    browserifyOptions: {
+                        "debug": true
+                    }
                 }
             }
         },
